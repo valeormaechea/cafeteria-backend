@@ -14,8 +14,18 @@ app.set("port", process.env.PORT || 4000);
 // Quiero que mi backend se inicialize y quede en ese puerto
 // Que quede escuchando ese puerto
 app.listen(app.get("port"), () => {
-  console.log(`Estamos en el puerto ${app.get("port")}`);
+  console.log(`Estamos en el puerto numero ${app.get("port")}`);
 });
 
 // Si ejecuto npm start luego de esto, y no puedo escribir en ella, es
 // porque esta en ejecucion el backend, hasta que lo apague
+// Si hago cambios en el codigo y quiero que impacten, debo cortar
+// la ejecucion y volver a arrancar
+// Nodemon hace eso automaticamente
+// npm install -g nodemon
+
+// "scripts": {
+//     "start": "babel-node index.js",
+//     "dev": "nodemon --exec babel-node index.js"
+//   },
+// Cualquier otro comando que no sea start, se ejecuta con npm run nombre
