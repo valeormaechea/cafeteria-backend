@@ -47,3 +47,4 @@ app.use(express.static("./public"));
 
 // Rutas
 app.use('/apicafe', router);
+// La ruta comienza con /apicafe y le sigue lo que venga en router
