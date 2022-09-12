@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import './src/database';
 // const express = require ("express");
 
 // Instancia de express
@@ -42,6 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Cargar un archivo estatico
 app.use(express.static("./public"));
+
 // Rutas
 /* Cuando alguien me haga una peticion get: declaro de donde hago la peticion, la ruta
 Luego lo que va a pasar cuando se haga esa peticion en esa direccion
