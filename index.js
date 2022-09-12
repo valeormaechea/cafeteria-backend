@@ -17,6 +17,8 @@ app.listen(app.get("port"), () => {
   console.log(`Estamos en el puerto numero ${app.get("port")}`);
 });
 
+console.log("funciona nodemon");
+
 // Si ejecuto npm start luego de esto, y no puedo escribir en ella, es
 // porque esta en ejecucion el backend, hasta que lo apague
 // Si hago cambios en el codigo y quiero que impacten, debo cortar
@@ -29,3 +31,18 @@ app.listen(app.get("port"), () => {
 //     "dev": "nodemon --exec babel-node index.js"
 //   },
 // Cualquier otro comando que no sea start, se ejecuta con npm run nombre
+
+// Middlewares
+
+// Rutas
+/* Cuando alguien me haga una peticion get: declaro de donde hago la peticion, la ruta
+Luego lo que va a pasar cuando se haga esa peticion en esa direccion
+req = request, res = response
+*/
+app.get("/", (req, res) => { 
+  res.send("primera peticion get");
+});
+
+// app.get("/prueba", (req, res) => {
+//   res.send("segunda peticion get");
+// });
