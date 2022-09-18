@@ -42,24 +42,36 @@ export const listarProductos = async (req, res) => {
 };
 
 export const obtenerProducto = async (req, res) => {
-    try {
-        console.log(req.params.id)
-        // Buscar en la bdd un producto
-        const productoBuscado = await Producto.findById(req.params.id);
-        // Enviar la respuesta al front end
-        res.status(200).json(productoBuscado);
-      } catch (error) {
-        console.log(error);
-        res.status(404).json({
-          mensaje: "Error al buscar el producto",
-        });
-      }
+  try {
+    console.log(req.params.id);
+    // Buscar en la bdd un producto
+    const productoBuscado = await Producto.findById(req.params.id);
+    // Enviar la respuesta al front end
+    res.status(200).json(productoBuscado);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al buscar el producto",
+    });
+  }
 };
 
 export const modificarProducto = (req, res) => {
   res.send("modificar producto");
 };
 
-export const eliminarProducto = (req, res) => {
+export const eliminarProducto = async (req, res) => {
+  try {
+    // BUscar un producto por el id en la collection de la bdd y luego borrar
+    await Producto.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      mensaje: "El producto fue eliminado correctamente",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({
+      mensaje: "Error al intentar borrar el producto",
+    });
+  }
   res.send("eliminar producto");
 };
