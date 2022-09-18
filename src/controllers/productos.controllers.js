@@ -41,8 +41,19 @@ export const listarProductos = async (req, res) => {
   }
 };
 
-export const obtenerProducto = (req, res) => {
-  res.send("obtener producto");
+export const obtenerProducto = async (req, res) => {
+    try {
+        console.log(req.params.id)
+        // Buscar en la bdd un producto
+        const productoBuscado = await Producto.findById(req.params.id);
+        // Enviar la respuesta al front end
+        res.status(200).json(productoBuscado);
+      } catch (error) {
+        console.log(error);
+        res.status(404).json({
+          mensaje: "Error al buscar el producto",
+        });
+      }
 };
 
 export const modificarProducto = (req, res) => {
