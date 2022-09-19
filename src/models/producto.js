@@ -22,6 +22,11 @@ const productoSchema = new Schema({
     type: String,
     required: true,
   },
+  descripcion:{
+    type: String,
+    required: false,
+    maxlength: 100,
+  }
 });
 
 const Producto = mongoose.model('producto', productoSchema);

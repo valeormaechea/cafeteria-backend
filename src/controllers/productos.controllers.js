@@ -1,4 +1,5 @@
 import Producto from "../models/producto";
+import { validationResult } from "express-validator";
 
 export const crearProducto = async (req, res) => {
   try {
@@ -20,6 +21,7 @@ export const crearProducto = async (req, res) => {
       imagen: req.body.imagen,
       precio: req.body.precio,
       categoria: req.body.categoria,
+      descripcion: req.body.descripcion
     });
     // Guardar efectivamente en la bdd
     await productoNuevo.save();
