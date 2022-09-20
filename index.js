@@ -1,8 +1,9 @@
 import express, { Router } from "express";
 import morgan from "morgan";
 import cors from "cors";
-import './src/database';
-import router from './src/routes/productos.routes'
+import "./src/database";
+import router from "./src/routes/productos.routes";
+import path from "path";
 // const express = require ("express");
 
 // Instancia de express
@@ -43,8 +44,9 @@ app.use(cors()); // Permite recibir peticiones remotas
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Cargar un archivo estatico
-app.use(express.static("./public"));
-
+//app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "public")));
 // Rutas
-app.use('/apicafe', router);
+app.use("/apicafe", router);
+
 // La ruta comienza con /apicafe y le sigue lo que venga en router
