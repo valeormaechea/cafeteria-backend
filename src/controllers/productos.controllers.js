@@ -54,7 +54,7 @@ export const listarProductos = async (req, res) => {
 
 export const obtenerProducto = async (req, res) => {
   try {
-    console.log(req.params.id);
+    console.log(req.params);
     // Buscar en la bdd un producto
     const productoBuscado = await Producto.findById(req.params.id);
     // Enviar la respuesta al front end
